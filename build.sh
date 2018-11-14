@@ -14,6 +14,11 @@ arch=$(uname -m)
 verbose=""
 script_path=$(readlink -f ${0%/*})
 
+
+rm -fr /etc/pacman.d/gnupg
+pacman-key --init
+pacman-key --populate archlinux
+
 _usage ()
 {
     echo "usage ${0} [options]"
